@@ -7,14 +7,9 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby20
 require 'json'
-
 stdin = STDIN.read
-indent_level = (ENV['TM_SOFT_TABS'] == "NO" ? "\t" : " "*ENV['TM_TAB_SIZE'].to_i )
-
 begin
-hash = JSON.parse stdin
-print JSON.pretty_generate(hash, indent: indent_level)
-rescue Exception =&gt; e
+stdin = JSON.parse(stdin).to_json
 print stdin
 end
 </string>
@@ -23,9 +18,9 @@ end
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>^H</string>
+	<string>^M</string>
 	<key>name</key>
-	<string>Reformat Document / Selection</string>
+	<string>Minify Document / Selection</string>
 	<key>outputCaret</key>
 	<string>heuristic</string>
 	<key>outputFormat</key>
@@ -35,7 +30,7 @@ end
 	<key>scope</key>
 	<string>source.json</string>
 	<key>uuid</key>
-	<string>4B74F2DE-E051-4E8D-9124-EBD90A2CDD2B</string>
+	<string>66890766-DB96-4772-B2D3-82ACB5DD6823</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
